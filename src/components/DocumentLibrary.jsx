@@ -17,7 +17,7 @@ function DocCard({ doc, onDelete, onFilterSelect, isActiveFilter }) {
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-start gap-2 min-w-0">
           <FileText size={16} className="text-slate-400 flex-shrink-0 mt-0.5" />
-          <p className="text-sm font-medium text-slate-800 break-words leading-5">
+          <p className="text-sm font-medium text-slate-800 break-all leading-5">
             {doc.doc_name.replace('.pdf', '')}
           </p>
         </div>

@@ -23,16 +23,18 @@ export async function deleteDocument(docId) {
 }
 
 export async function sendMessage({ sessionId, message, docIdFilter = null, topK = 5, threshold = 0.25 }) {
+  const body = {
+    session_id: sessionId,
+    message,
+    top_k: topK,
+    threshold,
+  }
+  if (docIdFilter !== null) body.doc_id_filter = docIdFilter
+
   const res = await fetch(`${API_URL}/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      session_id: sessionId,
-      message,
-      doc_id_filter: docIdFilter,
-      top_k: topK,
-      threshold,
-    }),
+    body: JSON.stringify(body),
   })
   return res.json()
 }
