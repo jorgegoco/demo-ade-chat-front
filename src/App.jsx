@@ -114,7 +114,13 @@ export default function App() {
           },
         ])
       } else {
-        setChatError(data.error ?? 'Something went wrong.')
+        const isBackendSerializationError =
+          data.error?.includes('by_alias') || data.error?.includes('NoneType')
+        setChatError(
+          isBackendSerializationError
+            ? 'The server encountered an error processing this query. Try clicking "New Chat" and asking again, or use the document filter to restrict the search to a specific paper.'
+            : data.error ?? 'Something went wrong.'
+        )
       }
     } catch {
       setChatError('Network error — could not reach the API.')
