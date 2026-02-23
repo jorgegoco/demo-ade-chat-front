@@ -19,6 +19,7 @@ A React app for browsing and chatting with a library of indexed medical research
 | Styling | Tailwind CSS v4 |
 | Icons | lucide-react |
 | File uploads | react-dropzone |
+| Markdown rendering | react-markdown |
 | HTTP | native fetch |
 
 ## Getting Started
